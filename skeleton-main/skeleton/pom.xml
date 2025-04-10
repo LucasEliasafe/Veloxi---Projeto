@@ -1,69 +1,88 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>br.com.skeleton</groupId>
-	<artifactId>skeleton</artifactId>
-	<version>1</version>
-	<packaging>pom</packaging>
-	<name>skeleton</name>
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>https://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+	<parent>
+		<groupId>br.com.skeleton</groupId>
+		<artifactId>skeleton</artifactId>
+		<version>1</version>
+	</parent>
+	<artifactId>skeleton-war</artifactId>
+	<packaging>war</packaging>
+	<name>skeleton-war</name>
 	<description>skeleton default project</description>
-	<modules>
-		<module>skeleton-ejb</module>
-		<module>skeleton-war</module>
-		<module>skeleton-ear</module>
-	</modules>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-web-api</artifactId>
+			<version>9.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.faces</groupId>
+			<artifactId>jakarta.faces-api</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.enterprise</groupId>
+			<artifactId>jakarta.enterprise.cdi-api</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.0.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>jakarta.faces</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>12.0.0</version>
+			<classifier>jakarta</classifier>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>primefaces-extensions</artifactId>
+			<version>14.0.2</version>
+			<classifier>jakarta</classifier>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>skeleton-ejb</artifactId>
+			<scope>provided</scope>
+			<version>${project.parent.version}</version>
+			<type>ejb</type>
+		</dependency>
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.1</version>
 				<configuration>
-					<source>11</source>
-					<target>11</target>
+					<attachClasses>true</attachClasses>
+					<classesClassifier>classes</classesClassifier>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-ejb-plugin</artifactId>
-				<version>3.2.1</version>
-				<configuration>
-					<ejbVersion>3.1</ejbVersion>
-					<generateClient>true</generateClient>
-					<clientExcludes>
-						<clientExclude>**/*Bean.class</clientExclude>
-						<clientExclude>**/*Bean$1.class</clientExclude>
-						<clientExclude>**/ejb/business/dao/**</clientExclude>
-						<clientExclude>**/ejb/business/integracao/**/*Impl.class
-						</clientExclude>
-						<clientExclude>
-							**/ejb/business/integracao/**/*Impl$1.class
-						</clientExclude>
-						<clientExclude>**/persistence.xml</clientExclude>
-						<clientExclude>sql/**</clientExclude>
-					</clientExcludes>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.1.0</version>
-				<configuration>
-					<show>private</show>
-					<nohelp>true</nohelp>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>javadoc</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
