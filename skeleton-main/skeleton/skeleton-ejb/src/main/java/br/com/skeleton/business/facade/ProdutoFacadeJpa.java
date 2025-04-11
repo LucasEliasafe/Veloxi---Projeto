@@ -27,6 +27,14 @@ public class ProdutoFacadeJpa implements ProdutoFacade {
     LOGGER.info("Produto cadastrado com sucesso: " + produto.getNome());
   }
 
+  @Override
+  public void atualizar(Produto produto) {
+    if (produto == null || produto.getId() == null) {
+      throw new IllegalArgumentException("Produto inválido para atualização.");
+    }
+    em.merge(produto);
+    LOGGER.info("Produto atualizado com sucesso: " + produto.getNome());
+  }
 
 
 }
