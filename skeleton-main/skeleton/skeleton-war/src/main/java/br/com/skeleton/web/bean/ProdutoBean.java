@@ -95,6 +95,18 @@ public class ProdutoBean implements Serializable {
         }
     }
 
+    private void validarDatas(LocalDate data, LocalDate validade) {
+        if (data == null || validade == null) {
+            throw new IllegalArgumentException("As datas de chegada e validade não podem ser nulas.");
+        }
+        if (data.isAfter(validade)) {
+            throw new IllegalArgumentException("A data de chegada não pode ser posterior à validade.");
+        }
+        if (data.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("A data de chegada não pode ser anterior à data atual.");
+        }
+    }
+
 }
 
 
