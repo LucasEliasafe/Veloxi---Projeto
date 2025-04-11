@@ -68,6 +68,24 @@ public class ProdutoBean implements Serializable {
         }
     }
 
+    public void deletar(Long id) {
+        try {
+            if (id == null) {
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "ID do produto inválido!"));
+                return;
+            }
+            produtoFacade.deletar(id);
+            produtos.removeIf(p -> p.getId().equals(id));
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso", "Produto deletado com sucesso!"));
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Erro ao deletar o produto", e);
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Erro ao deletar o produto: " + e.getMessage()));
+        }
+    }
+
 
 }
 
