@@ -86,6 +86,14 @@ public class ProdutoBean implements Serializable {
         }
     }
 
+    public void atualizar(Produto produtoSelecionado) {
+        this.produto = produtoSelecionado;
+        if (produto.getId() != null) {
+            produtoFacade.atualizar(produto);
+            FacesMessage msg = new FacesMessage("Produto atualizado com sucesso!");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }
+    }
 
 }
 
