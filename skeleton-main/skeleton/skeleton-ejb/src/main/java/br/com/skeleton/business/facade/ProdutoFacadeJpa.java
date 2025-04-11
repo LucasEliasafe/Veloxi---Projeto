@@ -62,9 +62,12 @@ public class ProdutoFacadeJpa implements ProdutoFacade {
     return produto;
   }
 
-
-
-
-
+  @Override
+  public List<Produto> findAll() {
+    TypedQuery<Produto> query = em.createQuery("SELECT p FROM Produto p", Produto.class);
+    List<Produto> produtos = query.getResultList();
+    LOGGER.info("Total de produtos encontrados: " + produtos.size());
+    return produtos;
+  }
 
 }
