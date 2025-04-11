@@ -42,4 +42,71 @@ public class Produto implements Serializable {
   @Column(name = "status", nullable = false, columnDefinition = "VARCHAR(20) DEFAULT 'ativo'")
   private String status = "ativo";
 
+  public Produto() {}
+
+  public Produto(String nome, String descricao, LocalDate data, LocalDate validade, BigDecimal valor, String status) {
+    this.nome = nome;
+    this.descricao = descricao;
+    this.data = data;
+    this.validade = validade;
+    this.valor = valor;
+    this.status = status;
+
+    public Long getId() {
+      return id;
+    }
+
+    public void setId(Long id) {
+      this.id = id;
+    }
+
+    public String getNome() {
+      return nome;
+    }
+
+    public void setNome(String nome) {
+      this.nome = nome;
+    }
+
+    public String getDescricao() {
+      return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+      this.descricao = descricao;
+    }
+
+    public LocalDate getData() {
+      return data;
+    }
+
+    public void setData(LocalDate data) {
+      this.data = data;
+    }
+
+    public LocalDate getValidade() {
+      return validade;
+    }
+
+    public void setValidade(LocalDate validade) {
+      this.validade = validade;
+    }
+
+    public BigDecimal getValor() {
+      return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+      this.valor = valor;
+    }
+
+    public String getStatus() {
+      return status;
+    }
+
+    public void setStatus(String status) {
+      this.status = status;
+    }
+  }
+
 }
