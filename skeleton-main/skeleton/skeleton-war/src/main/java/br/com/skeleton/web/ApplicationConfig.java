@@ -1,6 +1,8 @@
 package br.com.skeleton.web;
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
 
-
-public class ApplicationConfig {
+@ApplicationPath("/api")
+public class ApplicationConfig extends Application {
 
 }

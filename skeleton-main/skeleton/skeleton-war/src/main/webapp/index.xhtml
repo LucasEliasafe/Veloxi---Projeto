@@ -33,7 +33,7 @@
 		<p:commandButton value="Adicionar Produto" icon="pi pi-plus"
 						 oncomplete="PF('dlgCadastro').show()" style="margin-bottom: -10px;"/>
 
-		<!-- Diálogo de Cadastro -->
+
 		<p:dialog id="dlgCadastro" header="Adicionar Produto" widgetVar="dlgCadastro" modal="true" resizable="false">
 			<p:panelGrid id="panelCadastro" columns="2">
 				<p:outputLabel for="nome" value="Nome:" />
@@ -69,6 +69,43 @@
 								 onclick="PF('dlgCadastro').hide()" type="button"/>
 			</div>
 		</p:dialog>
+
+		<p:dataTable id="produtoTable" value="#{produtoBean.produtos}" var="produto"
+					 paginator="true" rows="5" responsive="true" style="margin-top: 320px;">
+			<p:column headerText="ID">
+				<h:outputText value="#{produto.id}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{produto.nome}" />
+			</p:column>
+			<p:column headerText="Descrição">
+				<h:outputText value="#{produto.descricao}" />
+			</p:column>
+			<p:column headerText="Valor">
+				<h:outputText value="#{produto.valor}" />
+			</p:column>
+			<p:column headerText="Status">
+				<h:outputText value="#{produto.status}" />
+			</p:column>
+			<p:column headerText="Validade">
+				<h:outputText value="#{produto.validade}" />
+			</p:column>
+			<p:column headerText="Data de Chegada">
+				<h:outputText value="#{produto.data}" />
+			</p:column>
+			<p:column headerText="Ações" styleClass="table-actions">
+				<p:commandButton icon="pi pi-pencil" title="Editar"
+								 actionListener="#{produtoBean.atualizar(produto)}"
+								 oncomplete="PF('dlgCadastro').show()"
+								 update="mainForm:dlgCadastro"/>
+				<p:commandButton icon="pi pi-trash" title="Deletar"
+								 styleClass="ui-button-danger"
+								 actionListener="#{produtoBean.setProdutoSelecionado(produto)}"
+								 oncomplete="PF('confirmDialog').show();"/>
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
 
 
 </h:body>
