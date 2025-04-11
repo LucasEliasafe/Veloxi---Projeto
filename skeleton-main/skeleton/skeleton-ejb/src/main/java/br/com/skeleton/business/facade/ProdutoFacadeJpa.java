@@ -36,5 +36,21 @@ public class ProdutoFacadeJpa implements ProdutoFacade {
     LOGGER.info("Produto atualizado com sucesso: " + produto.getNome());
   }
 
+  @TransactionAttribute(TransactionAttributeType.REQUIRED)
+  public void deletar(Long id) {
+    if (id == null) {
+      throw new IllegalArgumentException("ID não pode ser nulo.");
+    }
+    Produto produto = em.find(Produto.class, id); // Busca o produto
+    if (produto != null) {
+      em.remove(produto); // Remove do banco
+      LOGGER.info("Produto removido com sucesso. ID: " + id);
+    } else {
+      LOGGER.warning("Tentativa de remover produto inexistente. ID: " + id);
+    }
+  }
+
+
+
 
 }
