@@ -113,7 +113,21 @@
 								 actionListener="#{produtoBean.setProdutoSelecionado(produto)}"
 								 oncomplete="PF('confirmDialog').show();"/>
 			</p:column>
+			<f:facet name="footer">
+				<div class="table-footer">
+					<p:commandButton icon="pi pi-camera"
+									 styleClass="p-button-rounded p-button-text p-button-sm"
+									 title="Exportar como imagem"
+									 type="button"
+									 onclick="exportarTabelaParaImagem()" />
 
+					<p:commandButton icon="pi pi-file-pdf"
+									 styleClass="p-button-rounded p-button-danger p-button-sm"
+									 title="Exportar como PDF"
+									 type="button"
+									 onclick="exportarTabelaParaPDF()" />
+				</div>
+			</f:facet>
 		</p:dataTable>
 	</h:form>
 
