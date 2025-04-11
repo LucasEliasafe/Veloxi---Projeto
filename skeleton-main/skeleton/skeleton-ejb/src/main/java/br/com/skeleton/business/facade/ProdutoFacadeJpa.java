@@ -50,6 +50,20 @@ public class ProdutoFacadeJpa implements ProdutoFacade {
     }
   }
 
+  @Override
+  public Produto findById(Long id) {
+    if (id == null) {
+      throw new IllegalArgumentException("ID não pode ser nulo.");
+    }
+    Produto produto = em.find(Produto.class, id);
+    if (produto == null) {
+      LOGGER.info("Produto não encontrado para ID: " + id);
+    }
+    return produto;
+  }
+
+
+
 
 
 
