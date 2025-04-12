@@ -8,6 +8,8 @@ function toggleTheme() {
     }, 500);
 }
 
+
+
 function exportarTabelaParaImagem() {
     const tabela = document.getElementById('mainForm:produtoTable');
 
@@ -20,9 +22,11 @@ function exportarTabelaParaImagem() {
         const link = document.createElement('a');
         link.download = 'tabela_equipamentos.png';
         link.href = canvas.toDataURL('image/png');
-        link.click(); // dispara o download
+        link.click();
     });
 }
+
+
 
 function exportarTabelaParaPDF() {
     const tabela = document.getElementById('mainForm:produtoTable');
