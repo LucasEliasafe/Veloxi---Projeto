@@ -70,6 +70,7 @@
 			</div>
 		</p:dialog>
 
+
 		<p:confirmDialog widgetVar="confirmDialog" showEffect="fade" width="400"
 						 header="Confirmação" message="Tem certeza que deseja excluir este produto?" severity="warn">
 			<p:commandButton value="Sim" icon="pi pi-check" styleClass="ui-button-danger"
@@ -79,6 +80,7 @@
 			<p:commandButton value="Não" icon="pi pi-times" onclick="PF('confirmDialog').hide()"
 							 type="button" styleClass="ui-button-secondary"/>
 		</p:confirmDialog>
+
 
 		<p:dataTable id="produtoTable" value="#{produtoBean.produtos}" var="produto"
 					 paginator="true" rows="5" responsive="true" style="margin-top: 320px;">
@@ -130,7 +132,5 @@
 			</f:facet>
 		</p:dataTable>
 	</h:form>
-
-
 </h:body>
 </html>

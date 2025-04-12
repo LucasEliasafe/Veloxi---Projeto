@@ -31,11 +31,47 @@ public class ProdutoBean implements Serializable {
     private Produto produtoParaAtualizar;
     private List<Produto> produtos;
 
+
+    private void limparFormulario() {
+        produto = new Produto();
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProdutoId(Long produtoId) {
+        this.produtoId = produtoId;
+    }
+
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public Produto getProdutoSelecionado() {
+        return produtoSelecionado;
+    }
+
+    public void setProdutoSelecionado(Produto produtoSelecionado) {
+        this.produtoSelecionado = produtoSelecionado;
+    }
+
+    public Long getProdutoId() {
+        return produtoId;
+    }
+
+
     @PostConstruct
     public void init() {
         produtos = new ArrayList<>();
         produto = new Produto();
         produtoParaAtualizar = new Produto();
+
         try {
             if (produtoFacade == null) {
                 LOGGER.log(Level.SEVERE, "Erro: produtoFacade não foi injetado corretamente!");
@@ -54,7 +90,7 @@ public class ProdutoBean implements Serializable {
 
     public void cadastrar() {
         try {
-            System.out.println("Chamando cadastrar() em ProdutoBean");
+            System.out.println(">>> Chamando cadastrar() em ProdutoBean");
             validarDatas(produto.getData(), produto.getValidade());
             produtoFacade.cadastrar(produto);
             produtos.add(produto);
@@ -67,6 +103,7 @@ public class ProdutoBean implements Serializable {
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Erro ao salvar o produto: " + e.getMessage()));
         }
     }
+
 
     public void deletar(Long id) {
         try {
@@ -86,6 +123,7 @@ public class ProdutoBean implements Serializable {
         }
     }
 
+
     public void atualizar(Produto produtoSelecionado) {
         this.produto = produtoSelecionado;
         if (produto.getId() != null) {
@@ -94,6 +132,7 @@ public class ProdutoBean implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
+
 
     private void validarDatas(LocalDate data, LocalDate validade) {
         if (data == null || validade == null) {
@@ -108,7 +147,6 @@ public class ProdutoBean implements Serializable {
     }
 
 }
-
 
 
 

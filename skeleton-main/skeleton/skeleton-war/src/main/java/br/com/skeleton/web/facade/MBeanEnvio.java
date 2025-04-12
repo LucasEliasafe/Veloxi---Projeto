@@ -18,16 +18,8 @@ public class MBeanEnvio implements Serializable {
   private static final long serialVersionUID = -1526686423522311531L;
   private static final Logger LOGGER = Logger.getLogger(MBeanEnvio.class.getName());
 
-
-  private Config config;
+  private Config config = new Config(); // ✅ só essa declaração
   private String mensagemRetorno;
-
-
-  public MBeanEnvio() {
-    config = new Config();
-  }
-
-  private Config config;
 
   public Config getConfig() {
     return config;
@@ -36,7 +28,6 @@ public class MBeanEnvio implements Serializable {
   public void setConfig(Config config) {
     this.config = config;
   }
-
 
   @PostConstruct
   public void init() {

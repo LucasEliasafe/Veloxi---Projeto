@@ -10,9 +10,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
-
 
 @Entity
 @Table(name = "equipamentos")
@@ -51,62 +48,62 @@ public class Produto implements Serializable {
     this.validade = validade;
     this.valor = valor;
     this.status = status;
+  }
 
-    public Long getId() {
-      return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-      this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public String getNome() {
-      return nome;
-    }
+  public String getNome() {
+    return nome;
+  }
 
-    public void setNome(String nome) {
-      this.nome = nome;
-    }
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-    public String getDescricao() {
-      return descricao;
-    }
+  public String getDescricao() {
+    return descricao;
+  }
 
-    public void setDescricao(String descricao) {
-      this.descricao = descricao;
-    }
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
 
-    public LocalDate getData() {
-      return data;
-    }
+  public LocalDate getData() {
+    return data;
+  }
 
-    public void setData(LocalDate data) {
-      this.data = data;
-    }
+  public void setData(LocalDate data) {
+    this.data = data;
+  }
 
-    public LocalDate getValidade() {
-      return validade;
-    }
+  public LocalDate getValidade() {
+    return validade;
+  }
 
-    public void setValidade(LocalDate validade) {
-      this.validade = validade;
-    }
+  public void setValidade(LocalDate validade) {
+    this.validade = validade;
+  }
 
-    public BigDecimal getValor() {
-      return valor;
-    }
+  public BigDecimal getValor() {
+    return valor;
+  }
 
-    public void setValor(BigDecimal valor) {
-      this.valor = valor;
-    }
+  public void setValor(BigDecimal valor) {
+    this.valor = valor;
+  }
 
-    public String getStatus() {
-      return status;
-    }
+  public String getStatus() {
+    return status;
+  }
 
-    public void setStatus(String status) {
-      this.status = status;
-    }
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   @Override
@@ -120,23 +117,18 @@ public class Produto implements Serializable {
             ", valor=" + valor +
             ", status='" + status + '\'' +
             '}';
-
-
-    @Override
-    public boolean equals(Object obj) {
-      if (this == obj) return true;
-      if (obj == null || getClass() != obj.getClass()) return false;
-      Produto that = (Produto) obj;
-      return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-      return Objects.hash(id);
-    }
-
   }
 
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    Produto that = (Produto) obj;
+    return Objects.equals(id, that.id);
+  }
 
-
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
 }

@@ -8,10 +8,8 @@ function toggleTheme() {
     }, 500);
 }
 
-
-
 function exportarTabelaParaImagem() {
-    const tabela = document.getElementById('mainForm:equipamentoTable');
+    const tabela = document.getElementById('mainForm:produtoTable');
 
     if (!tabela) {
         alert('Tabela não encontrada!');
@@ -26,10 +24,8 @@ function exportarTabelaParaImagem() {
     });
 }
 
-
-
 function exportarTabelaParaPDF() {
-    const tabela = document.getElementById('mainForm:equipamentoTable');
+    const tabela = document.getElementById('mainForm:produtoTable');
     if (!tabela) return;
 
     html2canvas(tabela).then(canvas => {
