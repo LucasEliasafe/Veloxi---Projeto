@@ -1,0 +1,229 @@
+body.preserve-bg {
+    background-image: url("#{resource['images/veloxi_banner-4.jpg']}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body.dark-theme {
+    color: #ffffff;
+}
+
+.preserve-bg {
+    background-image: url("#{resource['images/veloxi_banner-4.jpg']}") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+}
+
+
+.header-container {
+    background-color: #007ad9;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle-button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+
+.theme-toggle-button .ui-icon {
+    font-size: 16px;
+}
+
+
+.theme-toggle-button:hover {
+    background-color: #eeeeee;
+    box-shadow: 0 0 6px #00000055;
+    cursor: pointer;
+}
+
+
+.dark-theme .ui-widget,
+.dark-theme .ui-panelgrid,
+.dark-theme .ui-button,
+.dark-theme .ui-datatable,
+.dark-theme .ui-dialog,
+.dark-theme .ui-panel,
+.dark-theme .ui-calendar,
+.dark-theme .ui-growl,
+.dark-theme input,
+.dark-theme select,
+.dark-theme textarea,
+.dark-theme table,
+.dark-theme th,
+.dark-theme td {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+
+.dark-theme .header-container {
+    background-color: #111111 !important;
+    color: white !important;
+}
+
+
+.dark-theme .theme-toggle-button {
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.dark-theme .theme-toggle-button:hover {
+    background-color: #444;
+}
+
+.ui-datatable {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.ui-button {
+    border: 1px solid #ffffff !important;
+    border-radius: 4px;
+}
+
+.ui-dialog {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.ui-inputfield {
+    width: 100%;
+    padding: 5px;
+}
+
+.table-actions {
+    text-align: center;
+}
+
+.table-actions .ui-button {
+    margin: 2px;
+}
+
+#equipamentoTable {
+    margin-top: 320px;
+}
+
+.dark-theme .ui-datatable .ui-paginator {
+    background-color: #000000 !important;
+    border-top: 1px solid #ffffff !important;
+    color: #ffffff !important;
+}
+
+.dark-theme .ui-paginator .ui-paginator-page,
+.dark-theme .ui-paginator .ui-paginator-first,
+.dark-theme .ui-paginator .ui-paginator-prev,
+.dark-theme .ui-paginator .ui-paginator-next,
+.dark-theme .ui-paginator .ui-paginator-last {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff33 !important;
+}
+
+.dark-theme .ui-paginator .ui-state-active {
+    background-color: #ffffff22 !important;
+    color: #ffffff !important;
+    font-weight: bold;
+    border: 1px solid #ffffff !important;
+}
+
+.theme-transition {
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s;
+}
+
+
+.table-footer {
+    display: flex;
+    gap: 8px;
+    padding: 4px 8px;
+    justify-content: flex-start;
+}
+
+.dark-theme .table-footer .p-button {
+    border: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: #fff !important;
+}
+
+.dark-theme .table-footer {
+    background-color: transparent !important;
+}
+
+.dark-theme .table-footer .ui-icon {
+    color: #ffffff !important;
+    opacity: 0.9;
+}
+
+.dark-theme .table-footer .ui-button,
+.dark-theme .table-footer .p-button {
+    background-color: transparent !important;
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+.dark-theme .p-button-danger {
+    background-color: #990000 !important;
+    color: #fff !important;
+    border: 1px solid #ff4444 !important;
+}
+
+.dark-theme .p-button-danger:hover {
+    background-color: #bb0000 !important;
+}
+
+.dark-theme .p-button-rounded.p-button-text {
+    background-color: #222 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}
+
+.dark-theme .p-button-rounded.p-button-text:hover {
+    background-color: #333 !important;
+    box-shadow: 0 0 6px #ffffff44;
+}
+
